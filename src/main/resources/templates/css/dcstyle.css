@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+
+	html, body {
+		width: 100%;
+		height: 100%
+	}
+	.dcnavbar-bfont{
+		font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+		letter-spacing: -2px;
+	}
+
+	.dcnavbar-font{
+		font-family:Consolas, 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', Monaco, 'Courier New', 'monospace';
+		font-weight: bold;
+		font-size:16px;
+	}
+	
+	.adv-font{
+		
+	}
+	
+	.adv-alignmiddle{
+		margin-top:60px;
+	}
+	
+	.dcnav-item{
+		
+	}
+	
+	.navbar-border{
+		border-bottom-width: 3px;
+		border-bottom-style: solid;
+		border-bottom-color: #D8D8D8;
+	}
+
+	.talign-center{
+		text-align:center;
+	}
+	
+	.align-center{
+		margin:0 auto;
+	}
+	
+	.box{
+		padding:20px;
+	}
+	.box-title{
+		line-height:1.25;
+		margin-top:10px;
+		margin-bottom:10px;
+	}
+	.box-title-img{
+		margin:5px;
+	}
+	.dc-introduce{
+		max-width:700px;
+	}
+
+.badge-shadow{
+	box-shadow:2px 2px 5px darkgray;
+}
+
+.upborder-gray{
+	border-top-color:darkgray;
+	border-top-style: solid;
+	border-top-width:1px;
+}
+
+.input-padding{
+	padding-top:10px;
+}
+	

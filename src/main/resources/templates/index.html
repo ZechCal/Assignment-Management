@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>作业提交</title>
+<link rel="shortcut icon" href="img/study.png"/>
+</head>
+
+<link rel="stylesheet" href="css/bootstrap-grid.css" type="text/css"/>
+<link rel="stylesheet" href="css/bootstrap-reboot.css" type="text/css"/>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+<link rel="stylesheet" href="css/dcstyle.css" type="text/css"/>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
+
+<script type="text/javascript">
+	
+</script>
+
+<body>
+		<nav class="navbar navbar-fixed-top navbar-dark bg-dark navbar-expand-sm"> 
+			<div class="container-fluid">
+				<a href="#" class="navbar-brand" style="margin-left:-30px;border-left:#515151;border-left-width: 30px;border-left-style: solid;"> 
+					<font color="#FFFFFF" size="5px">作业提交系统<font class="dcnavbar-bfont" size="3px" style="padding-left:10px">Powered by zxy</font></font>
+				</a> 
+				<ul class="navbar-nav dcnavbar-font">
+					<!-- NavBar Header -->
+					<li class="nav-item dcnav-item">
+						<a href="#" class="nav-link active">作业提交</a></li>
+					<li class="nav-item dcnav-item">
+						<a href="search.html" class="nav-link">查询记录</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	
+	<div class="container" style="padding-top:30px;">
+		<div class="card">
+			<div class="card-body">			
+				<h5 class="card-title">
+					作业提交，请注意说明
+				</h5>
+				<h6 class="card-subtitle  mb-2 text-muted">
+					如有疑问联系TA-Zhang
+				</h6>
+				<div class="card-body">
+					<form action="upload" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<label for="stime" class="input-group-text">时间：</label>
+								</div>
+								<select class="form-control" id="stime" name="stime">
+									<option selected>请选择</option>
+									<option value="3">第3周：2020-09-14/2020-09-20</option>
+									<option value="4">第4周：2020-09-21/2020-09-27</option>
+									<option value="5">第5周：2020-09-28/2020-10-04</option>
+									<option value="6">第6周：2020-10-05/2020-10-11</option>
+									<option value="7">第7周：2020-10-12/2020-10-18</option>
+									<option value="8">第8周：2020-10-19/2020-10-25</option>
+									<option value="9">第9周：2020-10-26/2020-11-01</option>
+									<option value="10">第10周：2020-11-02/2020-11-08</option>
+									<option value="11">第11周：2020-11-09/2020-11-15</option>
+									<option value="12">第12周：2020-11-16/2020-11-22</option>
+									<option value="13">第13周：2020-11-23/2020-11-29</option>
+									<option value="14">第14周：2020-11-30/2020-12-06</option>
+									<option value="15">第15周：2020-12-07/2020-12-13</option>
+									<option value="16">第16周：2020-12-14/2020-12-20</option>
+									<option value="17">第17周：2020-12-21/2020-12-27</option>
+									<option value="18">第18周：2020-12-28/2021-01-03</option>
+									<option value="19">第19周：2021-01-04/2021-01-10</option>
+								</select>
+							</div>
+							<div class="input-group input-padding">
+								<div class="input-group-prepend">
+									<label for="sname" class="input-group-text">姓名：</label>
+								</div>
+								<input class="form-control" id="sname" name="sname" type="text" placeholder="请输入学生姓名" required="true"/>
+							</div>
+							<div class="input-group input-padding">
+								<div class="input-group-prepend">
+									<label for="snum" class="input-group-text">学号：</label>
+								</div>
+								<input class="form-control" id="snum" type="text" name="snum" maxlength="10"  placeholder="请输入学号:示例200110111,9位"  required="true"/>
+							</div>
+							<div class="input-group input-padding">
+								<div class="input-group-prepend">
+									<span class="form-control" id="sfiledescribe">Upload</span>	
+								</div>
+								<input class="form-control" id="sfile" name="sfile" type="file" aria-describedby="sfiledescribe" multiple="true"  required="true"/>
+								<label for="sfile" class="input-group-text">选择文件</label>
+							</div>
+						</div>
+					    <div class="form-row">
+							<button type="submit" class="btn btn-primary">提交</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
