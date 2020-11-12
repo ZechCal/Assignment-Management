@@ -5,11 +5,17 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.IOException;
+import java.nio.channels.FileLockInterruptionException;
 
 @Controller
+@ResponseBody
 public class UploadActivity {
-    private void executeUpload(String uploadDir,MultipartFile file,
+    public static String FILE_PATH = "F:/assigns";
+
+    public void executeUpload(String uploadDir,MultipartFile file,
                                String sname, String snum, String time, int i) throws Exception
     {
         //文件后缀名
@@ -20,24 +26,33 @@ public class UploadActivity {
             filename+=String.valueOf(i);
         }
         //服务器端保存的文件对象
-        File serverFile = new File(uploadDir + filename+suffix);
+        File serverFile = new File(uploadDir +"/"+ filename+suffix);
         //将上传的文件写入到服务器端文件内
         file.transferTo(serverFile);
     }
 
     @RequestMapping(value="/upload", method=RequestMethod.POST)
-    public String upload(HttpServletRequest request, @RequestParam("sfile") MultipartFile[] mfiles,
-                                       @RequestParam("stime") String time, @RequestParam("sname") String name,
-                                       @RequestParam("snum") String snum){
-        int timeInt = Integer.parseInt(time);
+    public void upload(HttpServletRequest request, HttpServletResponse response, @RequestParam("sfile") MultipartFile[] mfiles,
+                       @RequestParam("stime") String time, @RequestParam("sname") String name,
+                       @RequestParam("snum") String snum) throws IOException {
+        int timeInt = 0;
+        try {
+            timeInt = Integer.parseInt(time);
+        }catch(NumberFormatException e){
+            System.out.println("Number format exception during fileupload: "+snum+" 学生姓名:"+name);
+            response.sendRedirect("error.html");
+            return;
+        }
         if(timeInt<3||timeInt>19) {
-            return "/error";
+            response.sendRedirect("error.html");
+            return;
         }
         if(snum.length()<8){
-            return "/error";
+            response.sendRedirect("error.html");
+            return;
         }
         try{
-            String uploadDir = "F:/"+"upload/"+time+"/";
+            String uploadDir = FILE_PATH+"/"+time;
             File dir = new File(uploadDir);
             if(!dir.exists()){
                 dir.mkdir();
@@ -50,8 +65,11 @@ public class UploadActivity {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return "/error";
+            response.sendRedirect("error.html");
+            return;
         }
-        return "/success";
+        SearchTool searchTool = new SearchTool();
+        searchTool.FilesCounter();
+        response.sendRedirect("success.html");
     }
 }

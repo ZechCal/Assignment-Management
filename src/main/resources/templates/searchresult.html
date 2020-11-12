@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>作业提交-成功</title>
+<title>作业提交</title>
 <link rel="shortcut icon" href="img/study.png"/>
 </head>
 
@@ -28,16 +28,25 @@
 					<li class="nav-item dcnav-item">
 						<a href="index.html" class="nav-link">作业提交</a></li>
 					<li class="nav-item dcnav-item">
-						<a href="search.html" class="nav-link">查询记录</a>
+						<a href="" class="nav-link active">查询记录</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
 	
 	<div class="container" style="padding-top:30px;">
-		<div class="jumbotron">
-			<h4 class="display-4">上传成功√</h4>
-			<p class="lead">详情请在查询页检索，限于服务器性能每半个小时刷新一次</p>
+		<div class="card">
+			<div class="card-body">			
+				<h5 class="card-title" >
+					第<span th:text="${week}"></span>周
+				</h5>
+				<h6 class="card-subtitle  mb-2 text-muted" >
+					学号:<span th:text="${stunum}"></span>
+				</h6>
+				<div class="card-body" th:text="${date}">
+					日期:<span th:text="${date}"></span>
+				</div>
+			</div>
 		</div>
 	</div>
 	
